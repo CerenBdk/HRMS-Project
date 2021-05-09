@@ -32,28 +32,34 @@ public class User {
 	@Column(name= "confirm_password")
 	private String confirmPassword;
 	
-	@Column(name= "isActive")
+	@Column(name= "created_at")
+	private LocalDate createdDate;
+	
+	@Column(name= "is_active")
 	private boolean isActive;
 	
-	@Column(name= "isDeleted")
+	@Column(name= "is_deleted")
 	private boolean isDeleted;
 	
-	@Column(name= "createdAt")
-	private LocalDate createdDate;
+	@Column(name= "is_verified")
+	private boolean isVerified;
 	
 	public User() {
 		
 	}
-	
-	public User(String email, String password, String confirmPassword, boolean isActive, boolean isDeleted,
-			LocalDate createdDate) {
+
+	public User(String email, String password, String confirmPassword, LocalDate createdDate, boolean isActive,
+			boolean isDeleted, boolean isVerified) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.confirmPassword = confirmPassword;
+		this.createdDate = createdDate;
 		this.isActive = isActive;
 		this.isDeleted = isDeleted;
-		this.createdDate = createdDate;
+		this.isVerified = isVerified;
 	}
+	
+	
 	
 }

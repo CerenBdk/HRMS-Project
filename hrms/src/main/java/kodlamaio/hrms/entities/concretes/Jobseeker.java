@@ -24,7 +24,7 @@ public class Jobseeker extends User{
 	@Column(name= "last_name")
 	private String lastName;
 	
-	@Column(name= "nationalId")
+	@Column(name= "national_id")
 	private String nationalId;
 	
 	@Column(name= "year_of_birth")
