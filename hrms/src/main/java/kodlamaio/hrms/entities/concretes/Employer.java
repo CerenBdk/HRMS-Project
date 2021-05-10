@@ -27,15 +27,19 @@ public class Employer extends User{
 	@Column(name= "phone_number")
 	private String phoneNumber;
 	
+	@Column(name = "is_verified")
+	private boolean isVerified;
+	
 	public Employer() {
 		
 	}
 
-	public Employer(int companyId, String website, String phoneNumber) {
+	public Employer(int companyId, String website, String phoneNumber, boolean isVerified) {
 		super();
 		this.companyId = companyId;
 		this.website = website;
 		this.phoneNumber = phoneNumber;
+		this.isVerified = isVerified;
 	}
 	
 }

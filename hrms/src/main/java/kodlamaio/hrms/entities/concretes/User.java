@@ -33,7 +33,7 @@ public class User {
 	private String confirmPassword;
 	
 	@Column(name= "created_at")
-	private LocalDate createdDate;
+	private LocalDate createdAt;
 	
 	@Column(name= "is_active")
 	private boolean isActive;
@@ -41,23 +41,19 @@ public class User {
 	@Column(name= "is_deleted")
 	private boolean isDeleted;
 	
-	@Column(name= "is_verified")
-	private boolean isVerified;
-	
 	public User() {
 		
 	}
 
-	public User(String email, String password, String confirmPassword, LocalDate createdDate, boolean isActive,
-			boolean isDeleted, boolean isVerified) {
+	public User(String email, String password, String confirmPassword, LocalDate createdAt, boolean isActive,
+			boolean isDeleted) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.confirmPassword = confirmPassword;
-		this.createdDate = createdDate;
+		this.createdAt = createdAt;
 		this.isActive = isActive;
 		this.isDeleted = isDeleted;
-		this.isVerified = isVerified;
 	}
 	
 	
