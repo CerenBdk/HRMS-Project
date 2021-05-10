@@ -18,8 +18,8 @@ public class Employer extends User{
 //	@Column(name= "user_id")
 //	private int userId;
 	
-	@Column(name= "company_id")
-	private int companyId;
+	@Column(name= "company_name")
+	private String companyName;
 	
 	@Column(name= "website")
 	private String website;
@@ -34,9 +34,9 @@ public class Employer extends User{
 		
 	}
 
-	public Employer(int companyId, String website, String phoneNumber, boolean isVerified) {
+	public Employer(String companyName, String website, String phoneNumber, boolean isVerified) {
 		super();
-		this.companyId = companyId;
+		this.companyName = companyName;
 		this.website = website;
 		this.phoneNumber = phoneNumber;
 		this.isVerified = isVerified;

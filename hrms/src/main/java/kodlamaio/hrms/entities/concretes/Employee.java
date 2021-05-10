@@ -24,17 +24,13 @@ public class Employee extends User{
 	@Column(name = "last_name")
 	private String lastName;
 	
-	@Column(name = "department_id")
-	private int departmentId;
-
 	public Employee() {
 		
 	}
 	
-	public Employee(String firstName, String lastName, int departmentId) {
+	public Employee(String firstName, String lastName) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.departmentId = departmentId;
 	}
 }
