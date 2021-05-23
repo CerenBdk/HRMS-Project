@@ -21,25 +21,25 @@ public class EmployerManager implements EmployerService{
 		this.employerDao = employerDao;
 	}
 
-	@Override
-	public void add(Employer employer) {
-		this.employerDao.save(employer);
-	}
-
-	@Override
-	public void update(Employer employer) {
-		this.employerDao.save(employer);
-	}
-
-	@Override
-	public void delete(int id) {
-		this.employerDao.deleteById(id);;
-	}
-
-	@Override
-	public Employer getById(int id) {
-		return this.employerDao.getOne(id);
-	}
+//	@Override
+//	public void add(Employer employer) {
+//		this.employerDao.save(employer);
+//	}
+//
+//	@Override
+//	public void update(Employer employer) {
+//		this.employerDao.save(employer);
+//	}
+//
+//	@Override
+//	public void delete(int id) {
+//		this.employerDao.deleteById(id);;
+//	}
+//
+//	@Override
+//	public Employer getById(int id) {
+//		return this.employerDao.getOne(id);
+//	}
 
 	@Override
 	public List<Employer> getAll() {

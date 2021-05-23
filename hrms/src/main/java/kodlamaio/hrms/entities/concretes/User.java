@@ -10,12 +10,16 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "users")
 @Data
 @Inheritance(strategy = InheritanceType.JOINED)
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
 	@Id
@@ -40,22 +44,5 @@ public class User {
 	
 	@Column(name= "is_deleted")
 	private boolean isDeleted;
-	
-	public User() {
-		
-	}
-
-	public User(String email, String password, String confirmPassword, LocalDate createdAt, boolean isActive,
-			boolean isDeleted) {
-		super();
-		this.email = email;
-		this.password = password;
-		this.confirmPassword = confirmPassword;
-		this.createdAt = createdAt;
-		this.isActive = isActive;
-		this.isDeleted = isDeleted;
-	}
-	
-	
 	
 }

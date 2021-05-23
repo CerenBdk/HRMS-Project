@@ -5,12 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "employers")
 @Data
 @PrimaryKeyJoinColumn(name = "user_id")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Employer extends User{
 
 //	@Id
@@ -29,17 +33,5 @@ public class Employer extends User{
 	
 	@Column(name = "is_verified")
 	private boolean isVerified;
-	
-	public Employer() {
-		
-	}
-
-	public Employer(String companyName, String website, String phoneNumber, boolean isVerified) {
-		super();
-		this.companyName = companyName;
-		this.website = website;
-		this.phoneNumber = phoneNumber;
-		this.isVerified = isVerified;
-	}
 	
 }

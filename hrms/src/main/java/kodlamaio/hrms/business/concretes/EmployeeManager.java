@@ -20,25 +20,25 @@ public class EmployeeManager implements EmployeeService{
 		this.employeeDao = employeeDao;
 	}
 
-	@Override
-	public void add(Employee employee) {
-		this.employeeDao.save(employee);
-	}
-
-	@Override
-	public void update(Employee employee) {
-		this.employeeDao.save(employee);
-	}
-
-	@Override
-	public void delete(int id) {
-		this.employeeDao.deleteById(id);
-	}
-
-	@Override
-	public Employee getById(int id) {
-		return this.employeeDao.getOne(id);
-	}
+//	@Override
+//	public void add(Employee employee) {
+//		this.employeeDao.save(employee);
+//	}
+//
+//	@Override
+//	public void update(Employee employee) {
+//		this.employeeDao.save(employee);
+//	}
+//
+//	@Override
+//	public void delete(int id) {
+//		this.employeeDao.deleteById(id);
+//	}
+//
+//	@Override
+//	public Employee getById(int id) {
+//		return this.employeeDao.getOne(id);
+//	}
 
 	@Override
 	public List<Employee> getAll() {

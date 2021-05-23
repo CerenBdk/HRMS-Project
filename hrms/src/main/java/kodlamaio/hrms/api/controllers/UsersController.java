@@ -25,27 +25,27 @@ public class UsersController {
 		this.userService = userService;
 	}
 	
-	
-	@PostMapping("/add")
-	public void add(@RequestBody User user){
-		this.userService.add(user);
-	}
-	
-	@PostMapping("/update")
-	public void update(@RequestBody User user){
-		this.userService.update(user);
-	}
-	
-	@PostMapping("/delete")
-	public void delete(@PathVariable("id") int id){
-		this.userService.delete(id);
-	}
-	
-	@GetMapping("/getbyid")
-	public User getById(@PathVariable("id") int id){
-		return this.userService.getById(id);
-	}
-	
+//	
+//	@PostMapping("/add")
+//	public void add(@RequestBody User user){
+//		this.userService.add(user);
+//	}
+//	
+//	@PostMapping("/update")
+//	public void update(@RequestBody User user){
+//		this.userService.update(user);
+//	}
+//	
+//	@PostMapping("/delete")
+//	public void delete(@PathVariable("id") int id){
+//		this.userService.delete(id);
+//	}
+//	
+//	@GetMapping("/getbyid")
+//	public User getById(@PathVariable("id") int id){
+//		return this.userService.getById(id);
+//	}
+//	
 	@GetMapping("/getall")
 	public List<User> getAll(){
 		return this.userService.getAll();

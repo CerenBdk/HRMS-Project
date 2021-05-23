@@ -8,12 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "employers_verification_codes")
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class EmployerVerificationCode {
 
@@ -34,11 +36,4 @@ public class EmployerVerificationCode {
 	@Column(name= "is_confirmed")
 	private boolean IsConfirmed;
 
-	public EmployerVerificationCode(int employerId, String verificationCode, LocalDate createdAt, boolean isConfirmed) {
-		super();
-		this.employerId = employerId;
-		this.verificationCode = verificationCode;
-		this.createdAt = createdAt;
-		IsConfirmed = isConfirmed;
-	}
 }

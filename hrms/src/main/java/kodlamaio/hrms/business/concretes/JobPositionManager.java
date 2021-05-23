@@ -20,25 +20,25 @@ public class JobPositionManager implements JobPositionService{
 		this.jobPositionDao = jobPositionDao;
 	}
 
-	@Override
-	public void add(JobPosition jobPosition) {
-		this.jobPositionDao.save(jobPosition);
-	}
-
-	@Override
-	public void update(JobPosition jobPosition) {
-		this.jobPositionDao.save(jobPosition);
-	}
-
-	@Override
-	public void delete(int id) {
-		this.jobPositionDao.deleteById(id);
-	}
-
-	@Override
-	public JobPosition getById(int id) {
-		return this.jobPositionDao.getOne(id);
-	}
+//	@Override
+//	public void add(JobPosition jobPosition) {
+//		this.jobPositionDao.save(jobPosition);
+//	}
+//
+//	@Override
+//	public void update(JobPosition jobPosition) {
+//		this.jobPositionDao.save(jobPosition);
+//	}
+//
+//	@Override
+//	public void delete(int id) {
+//		this.jobPositionDao.deleteById(id);
+//	}
+//
+//	@Override
+//	public JobPosition getById(int id) {
+//		return this.jobPositionDao.getOne(id);
+//	}
 
 	@Override
 	public List<JobPosition> getAll() {

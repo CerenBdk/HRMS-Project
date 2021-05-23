@@ -25,26 +25,26 @@ public class EmployeesController {
 		this.employeeService = employeeService;
 	}
 	
-	
-	@PostMapping("/add")
-	public void add(@RequestBody Employee employee){
-		this.employeeService.add(employee);
-	}
-	
-	@PostMapping("/update")
-	public void update(@RequestBody Employee employee){
-		this.employeeService.update(employee);
-	}
-	
-	@PostMapping("/delete")
-	public void delete(@PathVariable("id") int id){
-		this.employeeService.delete(id);
-	}
-	
-	@GetMapping("/getbyid")
-	public Employee getById(@PathVariable("id") int id){
-		return this.employeeService.getById(id);
-	}
+//	
+//	@PostMapping("/add")
+//	public void add(@RequestBody Employee employee){
+//		this.employeeService.add(employee);
+//	}
+//	
+//	@PostMapping("/update")
+//	public void update(@RequestBody Employee employee){
+//		this.employeeService.update(employee);
+//	}
+//	
+//	@PostMapping("/delete")
+//	public void delete(@PathVariable("id") int id){
+//		this.employeeService.delete(id);
+//	}
+//	
+//	@GetMapping("/getbyid")
+//	public Employee getById(@PathVariable("id") int id){
+//		return this.employeeService.getById(id);
+//	}
 	
 	@GetMapping("/getall")
 	public List<Employee> getAll(){

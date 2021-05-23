@@ -20,25 +20,25 @@ public class JobseekerManager implements JobseekerService{
 		this.jobseekerDao = jobseekerDao;
 	}
 
-	@Override
-	public void add(Jobseeker jobseeker) {
-		this.jobseekerDao.save(jobseeker);
-	}
-
-	@Override
-	public void update(Jobseeker jobseeker) {
-		this.jobseekerDao.save(jobseeker);
-	}
-
-	@Override
-	public void delete(int id) {
-		this.jobseekerDao.deleteById(id);;
-	}
-
-	@Override
-	public Jobseeker getById(int id) {
-		return this.jobseekerDao.getOne(id);
-	}
+//	@Override
+//	public void add(Jobseeker jobseeker) {
+//		this.jobseekerDao.save(jobseeker);
+//	}
+//
+//	@Override
+//	public void update(Jobseeker jobseeker) {
+//		this.jobseekerDao.save(jobseeker);
+//	}
+//
+//	@Override
+//	public void delete(int id) {
+//		this.jobseekerDao.deleteById(id);;
+//	}
+//
+//	@Override
+//	public Jobseeker getById(int id) {
+//		return this.jobseekerDao.getOne(id);
+//	}
 
 	@Override
 	public List<Jobseeker> getAll() {

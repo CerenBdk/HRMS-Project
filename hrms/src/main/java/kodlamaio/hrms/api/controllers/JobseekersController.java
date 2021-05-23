@@ -26,25 +26,25 @@ public class JobseekersController {
 	}
 	
 	
-	@PostMapping("/add")
-	public void add(@RequestBody Jobseeker jobseeker){
-		this.jobseekerService.add(jobseeker);
-	}
-	
-	@PostMapping("/update")
-	public void update(@RequestBody Jobseeker jobseeker){
-		this.jobseekerService.update(jobseeker);
-	}
-	
-	@PostMapping("/delete")
-	public void delete(@PathVariable("id") int id){
-		this.jobseekerService.delete(id);
-	}
-	
-	@GetMapping("/getbyid")
-	public Jobseeker getById(@PathVariable("id") int id){
-		return this.jobseekerService.getById(id);
-	}
+//	@PostMapping("/add")
+//	public void add(@RequestBody Jobseeker jobseeker){
+//		this.jobseekerService.add(jobseeker);
+//	}
+//	
+//	@PostMapping("/update")
+//	public void update(@RequestBody Jobseeker jobseeker){
+//		this.jobseekerService.update(jobseeker);
+//	}
+//	
+//	@PostMapping("/delete")
+//	public void delete(@PathVariable("id") int id){
+//		this.jobseekerService.delete(id);
+//	}
+//	
+//	@GetMapping("/getbyid")
+//	public Jobseeker getById(@PathVariable("id") int id){
+//		return this.jobseekerService.getById(id);
+//	}
 	
 	@GetMapping("/getall")
 	public List<Jobseeker> getAll(){

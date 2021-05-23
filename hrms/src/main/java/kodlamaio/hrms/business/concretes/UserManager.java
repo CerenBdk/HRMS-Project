@@ -20,25 +20,25 @@ public class UserManager implements UserService{
 		this.userDao = userDao;
 	}
 
-	@Override
-	public void add(User user) {
-		this.userDao.save(user);
-	}
-
-	@Override
-	public void update(User user) {
-		this.userDao.save(user);
-	}
-
-	@Override
-	public void delete(int id) {
-		this.userDao.deleteById(id);
-	}
-
-	@Override
-	public User getById(int id) {
-		return this.userDao.getOne(id);
-	}
+//	@Override
+//	public void add(User user) {
+//		this.userDao.save(user);
+//	}
+//
+//	@Override
+//	public void update(User user) {
+//		this.userDao.save(user);
+//	}
+//
+//	@Override
+//	public void delete(int id) {
+//		this.userDao.deleteById(id);
+//	}
+//
+//	@Override
+//	public User getById(int id) {
+//		return this.userDao.getOne(id);
+//	}
 
 	@Override
 	public List<User> getAll() {

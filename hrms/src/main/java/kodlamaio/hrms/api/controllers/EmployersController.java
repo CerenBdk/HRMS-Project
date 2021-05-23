@@ -24,26 +24,26 @@ public class EmployersController {
 		this.employerService = employerService;
 	}
 	
-	
-	@PostMapping("/add")
-	public void add(@RequestBody Employer employer){
-		this.employerService.add(employer);
-	}
-	
-	@PostMapping("/update")
-	public void update(@RequestBody Employer employer){
-		this.employerService.update(employer);
-	}
-	
-	@PostMapping("/delete")
-	public void delete(@PathVariable("id") int id){
-		this.employerService.delete(id);
-	}
-	
-	@GetMapping("/getbyid")
-	public Employer getById(@PathVariable("id") int id){
-		return this.employerService.getById(id);
-	}
+//	
+//	@PostMapping("/add")
+//	public void add(@RequestBody Employer employer){
+//		this.employerService.add(employer);
+//	}
+//	
+//	@PostMapping("/update")
+//	public void update(@RequestBody Employer employer){
+//		this.employerService.update(employer);
+//	}
+//	
+//	@PostMapping("/delete")
+//	public void delete(@PathVariable("id") int id){
+//		this.employerService.delete(id);
+//	}
+//	
+//	@GetMapping("/getbyid")
+//	public Employer getById(@PathVariable("id") int id){
+//		return this.employerService.getById(id);
+//	}
 	
 	@GetMapping("/getall")
 	public List<Employer> getAll(){
