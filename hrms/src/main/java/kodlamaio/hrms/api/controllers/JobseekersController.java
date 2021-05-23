@@ -24,8 +24,7 @@ public class JobseekersController {
 		super();
 		this.jobseekerService = jobseekerService;
 	}
-	
-	
+		
 //	@PostMapping("/add")
 //	public void add(@RequestBody Jobseeker jobseeker){
 //		this.jobseekerService.add(jobseeker);

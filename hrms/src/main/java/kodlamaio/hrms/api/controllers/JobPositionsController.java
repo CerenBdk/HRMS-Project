@@ -25,7 +25,7 @@ public class JobPositionsController {
 		this.jobPositionService = jobPositionService;
 	}
 	
-//	
+	
 //	@PostMapping("/add")
 //	public void add(@RequestBody JobPosition jobPosition){
 //		this.jobPositionService.add(jobPosition);

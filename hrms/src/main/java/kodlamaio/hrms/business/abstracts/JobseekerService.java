@@ -10,5 +10,6 @@ public interface JobseekerService {
 //	void update(Jobseeker jobseeker);
 //	void delete(int id);
 //	Jobseeker getById(int id);
+	
 	List<Jobseeker> getAll();
 }

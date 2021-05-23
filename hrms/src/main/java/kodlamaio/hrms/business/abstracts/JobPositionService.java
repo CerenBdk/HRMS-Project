@@ -10,5 +10,6 @@ public interface JobPositionService {
 //	void update(JobPosition jobPosition);
 //	void delete(int id);
 //	JobPosition getById(int id);
+	
 	List<JobPosition> getAll();
 }

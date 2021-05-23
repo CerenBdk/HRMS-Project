@@ -9,6 +9,7 @@ import kodlamaio.hrms.business.abstracts.JobPositionService;
 import kodlamaio.hrms.dataAccess.abstracts.JobPositionDao;
 import kodlamaio.hrms.entities.concretes.JobPosition;
 
+
 @Service
 public class JobPositionManager implements JobPositionService{
 

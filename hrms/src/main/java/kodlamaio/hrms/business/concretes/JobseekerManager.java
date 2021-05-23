@@ -9,6 +9,7 @@ import kodlamaio.hrms.business.abstracts.JobseekerService;
 import kodlamaio.hrms.dataAccess.abstracts.JobseekerDao;
 import kodlamaio.hrms.entities.concretes.Jobseeker;
 
+
 @Service
 public class JobseekerManager implements JobseekerService{
 

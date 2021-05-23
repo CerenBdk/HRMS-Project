@@ -10,5 +10,6 @@ public interface EmployerService {
 //	void update(Employer employer);
 //	void delete(int id);
 //	Employer getById(int id);
+	
 	List<Employer> getAll();
 }

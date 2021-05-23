@@ -9,6 +9,7 @@ import kodlamaio.hrms.business.abstracts.EmployeeService;
 import kodlamaio.hrms.dataAccess.abstracts.EmployeeDao;
 import kodlamaio.hrms.entities.concretes.Employee;
 
+
 @Service
 public class EmployeeManager implements EmployeeService{
 

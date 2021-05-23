@@ -10,5 +10,6 @@ public interface UserService {
 //	void update(User user);
 //	void delete(int id);
 //	User getById(int id);
+	
 	List<User> getAll();
 }

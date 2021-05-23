@@ -9,6 +9,7 @@ import kodlamaio.hrms.business.abstracts.UserService;
 import kodlamaio.hrms.dataAccess.abstracts.UserDao;
 import kodlamaio.hrms.entities.concretes.User;
 
+
 @Service
 public class UserManager implements UserService{
 
