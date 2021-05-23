@@ -68,12 +68,12 @@ public class AuthManager implements AuthService {
 
 			return new ErrorResult("You have entered missing information. Please fill in all fields.");
 		}
-		
-		if(!checkIfExistsTcNo(jobseeker.getNationalId())) {
-			
+
+		if (!checkIfExistsTcNo(jobseeker.getNationalId())) {
+
 			return new ErrorResult(jobseeker.getNationalId() + " already exists.");
 		}
-		
+
 		if (!checkIfEmailExists(jobseeker.getEmail())) {
 
 			return new ErrorResult(jobseeker.getEmail() + " already exists.");
@@ -110,7 +110,6 @@ public class AuthManager implements AuthService {
 		return false;
 	}
 
-
 	private boolean checkIfEqualPasswordAndConfirmPassword(String password, String confirmPassword) {
 
 		if (!password.equals(confirmPassword)) {
@@ -138,16 +137,15 @@ public class AuthManager implements AuthService {
 
 	private boolean checkIfExistsTcNo(String nationalId) {
 
-		if(this.jobseekerService.getJobseekerByNationalId(nationalId).getData() == null ) {
+		if (this.jobseekerService.getJobseekerByNationalId(nationalId).getData() == null) {
 			return true;
 		}
 		return false;
 	}
 
 	// Validation for jobseeker register ---END---
-	
+
 	// Common Validation
-	
 
 	private boolean checkIfEmailExists(String email) {
 
