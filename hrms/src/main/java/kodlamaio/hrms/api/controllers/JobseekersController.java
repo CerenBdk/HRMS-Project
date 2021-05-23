@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.JobseekerService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
-//import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.Jobseeker;
 
 @RestController
@@ -27,10 +27,10 @@ public class JobseekersController {
 		this.jobseekerService = jobseekerService;
 	}
 		
-//	@PostMapping("/add")
-//	public Result add(@RequestBody Jobseeker jobseeker){
-//		return this.jobseekerService.add(jobseeker);
-//	}
+	@PostMapping("/add")
+	public Result add(@RequestBody Jobseeker jobseeker){
+		return this.jobseekerService.add(jobseeker);
+	}
 //	
 //	@PostMapping("/update")
 //	public Result update(@RequestBody Jobseeker jobseeker){

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import kodlamaio.hrms.business.abstracts.EmployerService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
-//import kodlamaio.hrms.core.utilities.results.Result;
-//import kodlamaio.hrms.core.utilities.results.SuccessResult;
+import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.EmployerDao;
 import kodlamaio.hrms.entities.concretes.Employer;
 
@@ -20,15 +20,14 @@ public class EmployerManager implements EmployerService{
 	
 	@Autowired
 	public EmployerManager(EmployerDao employerDao) {
-		super();
 		this.employerDao = employerDao;
 	}
 
-//	@Override
-//	public void add(Employer employer) {
-//		this.employerDao.save(employer);
-//      return new SuccessResult("Employer has been added.");
-//	} 
+	@Override
+	public Result add(Employer employer) {
+		this.employerDao.save(employer);
+        return new SuccessResult("Employer has been added.");
+	} 
 //
 //	@Override
 //	public void update(Employer employer) {
