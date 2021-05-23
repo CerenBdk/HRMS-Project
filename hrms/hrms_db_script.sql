@@ -344,6 +344,7 @@ ALTER TABLE ONLY public.employees
     ADD CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES public.users(id) NOT VALID;
 
 
+    
 -- Completed on 2021-05-24 00:37:06
 
 --
