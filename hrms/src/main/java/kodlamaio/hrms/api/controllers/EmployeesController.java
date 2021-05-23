@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.EmployeeService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+//import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.Employee;
 
 @RestController
@@ -27,27 +29,27 @@ public class EmployeesController {
 	
 
 //	@PostMapping("/add")
-//	public void add(@RequestBody Employee employee){
-//		this.employeeService.add(employee);
+//	public Result add(@RequestBody Employee employee){
+//		return this.employeeService.add(employee);
 //	}
 //	
 //	@PostMapping("/update")
-//	public void update(@RequestBody Employee employee){
-//		this.employeeService.update(employee);
+//	public Result update(@RequestBody Employee employee){
+//		return this.employeeService.update(employee);
 //	}
 //	
 //	@PostMapping("/delete")
-//	public void delete(@PathVariable("id") int id){
-//		this.employeeService.delete(id);
+//	public Result delete(@PathVariable("id") int id){
+//		return this.employeeService.delete(id);
 //	}
 //	
 //	@GetMapping("/getbyid")
-//	public Employee getById(@PathVariable("id") int id){
+//	public DataResult<Employee> getById(@PathVariable("id") int id){
 //		return this.employeeService.getById(id);
 //	}
 	
 	@GetMapping("/getall")
-	public List<Employee> getAll(){
+	public DataResult<List<Employee>> getAll(){
 		return this.employeeService.getAll();
 	}
 }

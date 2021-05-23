@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.UserService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+//import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.User;
 
 @RestController
@@ -26,27 +28,27 @@ public class UsersController {
 	}
 	
 //	@PostMapping("/add")
-//	public void add(@RequestBody User user){
-//		this.userService.add(user);
+//	public Result add(@RequestBody User user){
+//		return this.userService.add(user);
 //	}
 //	
 //	@PostMapping("/update")
-//	public void update(@RequestBody User user){
-//		this.userService.update(user);
+//	public Result update(@RequestBody User user){
+//		return this.userService.update(user);
 //	}
 //	
 //	@PostMapping("/delete")
-//	public void delete(@PathVariable("id") int id){
-//		this.userService.delete(id);
+//	public Result delete(@PathVariable("id") int id){
+//		return this.userService.delete(id);
 //	}
 //	
 //	@GetMapping("/getbyid")
-//	public User getById(@PathVariable("id") int id){
+//	public DataResult<User> getById(@PathVariable("id") int id){
 //		return this.userService.getById(id);
 //	}
 //	
 	@GetMapping("/getall")
-	public List<User> getAll(){
+	public DataResult<List<User>> getAll(){
 		return this.userService.getAll();
 	}
 	

@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.EmployeeService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
+//import kodlamaio.hrms.core.utilities.results.Result;
+//import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.EmployeeDao;
 import kodlamaio.hrms.entities.concretes.Employee;
 
@@ -22,29 +26,32 @@ public class EmployeeManager implements EmployeeService{
 	}
 
 //	@Override
-//	public void add(Employee employee) {
+//	public Result add(Employee employee) {
 //		this.employeeDao.save(employee);
+//      return new SuccessResult("Employee has been added.");		
 //	}
 //
 //	@Override
-//	public void update(Employee employee) {
+//	public Result update(Employee employee) {
 //		this.employeeDao.save(employee);
+//      return new SuccessResult("Employee has been updated.");
 //	}
 //
 //	@Override
-//	public void delete(int id) {
+//	public Result delete(int id) {
 //		this.employeeDao.deleteById(id);
+//      return new SuccessResult("Employee has been deleted.");
 //	}
 //
 //	@Override
-//	public Employee getById(int id) {
-//		return this.employeeDao.getOne(id);
+//	public DataResult<Employee> getById(int id) {
+//		return new SuccessDataResult<Employee>(this.employeeDao.getOne(id));
 //	}
 
 	@Override
-	public List<Employee> getAll() {
+	public DataResult<List<Employee>> getAll() {
 		// TODO Auto-generated method stub
-		return this.employeeDao.findAll();
+		return new SuccessDataResult<List<Employee>>(this.employeeDao.findAll());
 	}
 
 }

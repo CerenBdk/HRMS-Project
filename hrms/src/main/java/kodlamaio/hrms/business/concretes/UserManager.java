@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.UserService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
+//import kodlamaio.hrms.core.utilities.results.Result;
+//import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.UserDao;
 import kodlamaio.hrms.entities.concretes.User;
 
@@ -22,28 +26,31 @@ public class UserManager implements UserService{
 	}
 
 //	@Override
-//	public void add(User user) {
+//	public Result add(User user) {
 //		this.userDao.save(user);
+//	    return new SuccessResult("User has been added.");
 //	}
 //
 //	@Override
-//	public void update(User user) {
+//	public Result update(User user) {
 //		this.userDao.save(user);
+//      return new SuccessResult("User has been updated.");
 //	}
 //
 //	@Override
-//	public void delete(int id) {
+//	public Result delete(int id) {
 //		this.userDao.deleteById(id);
+//      return new SuccessResult("User has been deleted.");
 //	}
 //
 //	@Override
-//	public User getById(int id) {
-//		return this.userDao.getOne(id);
+//	public DataResult<User> getById(int id) {
+//		return new SuccessDataResult<User>(this.userDao.getOne(id));
 //	}
 
 	@Override
-	public List<User> getAll() {
-		return this.userDao.findAll();
+	public DataResult<List<User>> getAll() {
+		return new SuccessDataResult<List<User>>(this.userDao.findAll());
 	}
 
 }

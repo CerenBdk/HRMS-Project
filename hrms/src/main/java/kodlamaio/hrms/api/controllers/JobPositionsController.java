@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.JobPositionService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+//import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.JobPosition;
 
 @RestController
@@ -27,27 +29,27 @@ public class JobPositionsController {
 	
 	
 //	@PostMapping("/add")
-//	public void add(@RequestBody JobPosition jobPosition){
-//		this.jobPositionService.add(jobPosition);
+//	public Result add(@RequestBody JobPosition jobPosition){
+//		return this.jobPositionService.add(jobPosition);
 //	}
 //	
 //	@PostMapping("/update")
-//	public void update(@RequestBody JobPosition jobPosition){
-//		this.jobPositionService.update(jobPosition);
+//	public Result update(@RequestBody JobPosition jobPosition){
+//		return this.jobPositionService.update(jobPosition);
 //	}
 //	
 //	@PostMapping("/delete")
-//	public void delete(@PathVariable("id") int id){
-//		this.jobPositionService.delete(id);
+//	public Result delete(@PathVariable("id") int id){
+//		return this.jobPositionService.delete(id);
 //	}
 //	
 //	@GetMapping("/getbyid")
-//	public JobPosition getById(@PathVariable("id") int id){
+//	public DataResult<JobPosition> getById(@PathVariable("id") int id){
 //		return this.jobPositionService.getById(id);
 //	}
 	
 	@GetMapping("/getall")
-	public List<JobPosition> getAll(){
+	public DataResult<List<JobPosition>> getAll(){
 		return this.jobPositionService.getAll();
 	}
 }

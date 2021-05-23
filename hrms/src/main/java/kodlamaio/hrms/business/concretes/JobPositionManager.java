@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.JobPositionService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+//import kodlamaio.hrms.core.utilities.results.Result;
+//import kodlamaio.hrms.core.utilities.results.SuccessResult;
+import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.dataAccess.abstracts.JobPositionDao;
 import kodlamaio.hrms.entities.concretes.JobPosition;
 
@@ -22,28 +26,31 @@ public class JobPositionManager implements JobPositionService{
 	}
 
 //	@Override
-//	public void add(JobPosition jobPosition) {
+//	public Result add(JobPosition jobPosition) {
 //		this.jobPositionDao.save(jobPosition);
+//	    return new SuccessResult("Job position has been added.");
 //	}
 //
 //	@Override
-//	public void update(JobPosition jobPosition) {
+//	public Result update(JobPosition jobPosition) {
 //		this.jobPositionDao.save(jobPosition);
+//      return new SuccessResult("Job position has been updated.");
 //	}
 //
 //	@Override
-//	public void delete(int id) {
+//	public Result delete(int id) {
 //		this.jobPositionDao.deleteById(id);
+//      return new SuccessResult("Job position has been deleted.");
 //	}
 //
 //	@Override
-//	public JobPosition getById(int id) {
-//		return this.jobPositionDao.getOne(id);
+//	public DataResult<JobPosition> getById(int id) {
+//		return new SuccessDataResult<JobPosition>(this.jobPositionDao.getOne(id));
 //	}
 
 	@Override
-	public List<JobPosition> getAll() {
-		return this.jobPositionDao.findAll();
+	public DataResult<List<JobPosition>> getAll() {
+		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.findAll());
 	}
 
 }
