@@ -1,8 +1,5 @@
 package kodlamaio.hrms.business.concretes;
 
-import java.sql.Date;
-import java.time.LocalDate;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,12 +7,13 @@ import kodlamaio.hrms.business.abstracts.AuthService;
 import kodlamaio.hrms.business.abstracts.EmployerService;
 import kodlamaio.hrms.business.abstracts.JobseekerService;
 import kodlamaio.hrms.business.abstracts.UserService;
+import kodlamaio.hrms.core.utilities.adapters.ValidationService;
 import kodlamaio.hrms.core.utilities.results.ErrorResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
+import kodlamaio.hrms.core.verification.VerificationService;
 import kodlamaio.hrms.entities.concretes.Employer;
 import kodlamaio.hrms.entities.concretes.Jobseeker;
-import kodlamaio.hrms.entities.concretes.User;
 
 @Service
 public class AuthManager implements AuthService {
@@ -23,13 +21,18 @@ public class AuthManager implements AuthService {
 	private UserService userService;
 	private EmployerService employerService;
 	private JobseekerService jobseekerService;
+	private VerificationService verificationService;
+	private ValidationService validationService;
 
 	@Autowired
-	public AuthManager(UserService userService, EmployerService employerService, JobseekerService jobseekerService) {
+	public AuthManager(UserService userService, EmployerService employerService, JobseekerService jobseekerService,
+			VerificationService verificationService, ValidationService validationService) {
 		super();
 		this.userService = userService;
 		this.employerService = employerService;
 		this.jobseekerService = jobseekerService;
+		this.verificationService = verificationService;
+		this.validationService = validationService;
 	}
 
 	@Override
@@ -55,14 +58,19 @@ public class AuthManager implements AuthService {
 			return new ErrorResult("Passwords do not match.");
 		}
 
+		verificationService.sendLink(employer.getEmail());
 		employerService.add(employer);
-
 		return new SuccessResult("Registration has been successfully completed");
 
 	}
 
 	@Override
 	public Result registerJobseeker(Jobseeker jobseeker) {
+
+		if (checkIfRealPerson(Long.parseLong(jobseeker.getNationalId()), jobseeker.getFirstName(),
+				jobseeker.getLastName(), jobseeker.getDateOfBirth().getYear()) == false) {
+			return new ErrorResult("TCKN could not be verified.");
+		}
 
 		if (!checkIfNullInfoForJobseeker(jobseeker)) {
 
@@ -79,6 +87,7 @@ public class AuthManager implements AuthService {
 			return new ErrorResult(jobseeker.getEmail() + " already exists.");
 		}
 
+		verificationService.sendLink(jobseeker.getEmail());
 		jobseekerService.add(jobseeker);
 		return new SuccessResult("Registration has been successfully completed");
 	}
@@ -143,6 +152,13 @@ public class AuthManager implements AuthService {
 		return false;
 	}
 
+	private boolean checkIfRealPerson(long nationalId, String firstName, String lastName, int yearOfBirth) {
+
+		if (validationService.validateByMernis(nationalId, firstName, lastName, yearOfBirth)) {
+			return true;
+		}
+		return false;
+	}
 	// Validation for jobseeker register ---END---
 
 	// Common Validation
