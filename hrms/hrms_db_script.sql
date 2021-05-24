@@ -5,7 +5,7 @@
 -- Dumped from database version 13.2
 -- Dumped by pg_dump version 13.2
 
--- Started on 2021-05-24 00:37:05
+-- Started on 2021-05-24 18:03:18
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -291,30 +291,30 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 2907 (class 2606 OID 24795)
+-- TOC entry 2906 (class 2606 OID 24823)
 -- Name: employers_verification_employees employee_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.employers_verification_employees
-    ADD CONSTRAINT employee_id FOREIGN KEY (id) REFERENCES public.employees(user_id) NOT VALID;
+    ADD CONSTRAINT employee_id FOREIGN KEY (employee_id) REFERENCES public.employees(user_id) NOT VALID;
 
 
 --
--- TOC entry 2905 (class 2606 OID 24785)
--- Name: employers_verification_codes employer_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.employers_verification_codes
-    ADD CONSTRAINT employer_id FOREIGN KEY (id) REFERENCES public.employers(user_id) NOT VALID;
-
-
---
--- TOC entry 2906 (class 2606 OID 24790)
+-- TOC entry 2907 (class 2606 OID 24828)
 -- Name: employers_verification_employees employer_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.employers_verification_employees
-    ADD CONSTRAINT employer_id FOREIGN KEY (id) REFERENCES public.employers(user_id) NOT VALID;
+    ADD CONSTRAINT employer_id FOREIGN KEY (employer_id) REFERENCES public.employers(user_id) NOT VALID;
+
+
+--
+-- TOC entry 2905 (class 2606 OID 24833)
+-- Name: employers_verification_codes employer_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.employers_verification_codes
+    ADD CONSTRAINT employer_id FOREIGN KEY (employer_id) REFERENCES public.employers(user_id) NOT VALID;
 
 
 --
@@ -344,8 +344,7 @@ ALTER TABLE ONLY public.employees
     ADD CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES public.users(id) NOT VALID;
 
 
-    
--- Completed on 2021-05-24 00:37:06
+-- Completed on 2021-05-24 18:03:18
 
 --
 -- PostgreSQL database dump complete
