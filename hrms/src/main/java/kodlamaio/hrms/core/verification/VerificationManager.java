@@ -16,10 +16,9 @@ public class VerificationManager implements VerificationService{
 	}
 
 	@Override
-	public String sendCode(String email) {
+	public String sendCode() {
 		UUID uuid = UUID.randomUUID();
 		String verificationCode = uuid.toString();
-		System.out.println("Verification link has been sent to " + email );
 		System.out.println("Your activation code:  " + verificationCode );
 		return verificationCode;
 	}
