@@ -36,7 +36,7 @@ public class AuthManager implements AuthService {
 	}
 
 	@Override
-	public Result registerEmployer(Employer employer) {
+	public Result registerEmployer(Employer employer, String confirmPassword) {
 
 		if (!checkIfNullInfoForEmployer(employer)) {
 
@@ -53,26 +53,26 @@ public class AuthManager implements AuthService {
 			return new ErrorResult(employer.getEmail() + " already exists.");
 		}
 
-		if (!checkIfEqualPasswordAndConfirmPassword(employer.getPassword(), employer.getConfirmPassword())) {
+		if (!checkIfEqualPasswordAndConfirmPassword(employer.getPassword(), confirmPassword)) {
 
 			return new ErrorResult("Passwords do not match.");
 		}
 
-		verificationService.sendLink(employer.getEmail());
 		employerService.add(employer);
+		verificationService.sendCode(employer.getEmail(), employer.getId());
 		return new SuccessResult("Registration has been successfully completed");
 
 	}
 
 	@Override
-	public Result registerJobseeker(Jobseeker jobseeker) {
+	public Result registerJobseeker(Jobseeker jobseeker, String confirmPassword) {
 
 		if (checkIfRealPerson(Long.parseLong(jobseeker.getNationalId()), jobseeker.getFirstName(),
 				jobseeker.getLastName(), jobseeker.getDateOfBirth().getYear()) == false) {
 			return new ErrorResult("TCKN could not be verified.");
 		}
 
-		if (!checkIfNullInfoForJobseeker(jobseeker)) {
+		if (!checkIfNullInfoForJobseeker(jobseeker, confirmPassword)) {
 
 			return new ErrorResult("You have entered missing information. Please fill in all fields.");
 		}
@@ -87,8 +87,9 @@ public class AuthManager implements AuthService {
 			return new ErrorResult(jobseeker.getEmail() + " already exists.");
 		}
 
-		verificationService.sendLink(jobseeker.getEmail());
+		
 		jobseekerService.add(jobseeker);
+		verificationService.sendCode(jobseeker.getEmail(), jobseeker.getId());
 		return new SuccessResult("Registration has been successfully completed");
 	}
 
@@ -97,8 +98,7 @@ public class AuthManager implements AuthService {
 	private boolean checkIfNullInfoForEmployer(Employer employer) {
 
 		if (employer.getCompanyName() != null && employer.getWebsite() != null && employer.getEmail() != null
-				&& employer.getPhoneNumber() != null && employer.getPassword() != null
-				&& employer.getConfirmPassword() != null) {
+				&& employer.getPhoneNumber() != null && employer.getPassword() != null) {
 
 			return true;
 
@@ -119,23 +119,15 @@ public class AuthManager implements AuthService {
 		return false;
 	}
 
-	private boolean checkIfEqualPasswordAndConfirmPassword(String password, String confirmPassword) {
-
-		if (!password.equals(confirmPassword)) {
-			return false;
-		}
-
-		return true;
-	}
-
 	// Validation for employer register ---END---
 
 	// Validation for jobseeker register ---START---
-	private boolean checkIfNullInfoForJobseeker(Jobseeker jobseeker) {
+	
+	private boolean checkIfNullInfoForJobseeker(Jobseeker jobseeker, String confirmPassword) {
 
 		if (jobseeker.getFirstName() != null && jobseeker.getLastName() != null && jobseeker.getNationalId() != null
-				&& jobseeker.getDateOfBirth() != null && jobseeker.getPassword() != null
-				&& jobseeker.getConfirmPassword() != null && jobseeker.getEmail() != null) {
+				&& jobseeker.getDateOfBirth() != null && jobseeker.getPassword() != null && jobseeker.getEmail() != null
+				&& confirmPassword != null) {
 
 			return true;
 
@@ -159,6 +151,7 @@ public class AuthManager implements AuthService {
 		}
 		return false;
 	}
+
 	// Validation for jobseeker register ---END---
 
 	// Common Validation
@@ -171,5 +164,14 @@ public class AuthManager implements AuthService {
 		}
 
 		return false;
+	}
+
+	private boolean checkIfEqualPasswordAndConfirmPassword(String password, String confirmPassword) {
+
+		if (!password.equals(confirmPassword)) {
+			return false;
+		}
+
+		return true;
 	}
 }
