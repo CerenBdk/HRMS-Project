@@ -52,4 +52,24 @@ public class JobAdvertController {
 	public DataResult<List<JobAdvert>> getAll(){		
 		return this.jobAdvertService.getAll();
 	}
+	
+	@PostMapping("/changeOpenToClose")
+	public Result changeOpenToClose(int id){
+		return this.jobAdvertService.changeOpenToClose(id);
+	}
+	
+	@GetMapping("/getAllOpenJobAdvertList")
+	public DataResult<List<JobAdvert>> getAllOpenJobAdvertList(){
+		return this.jobAdvertService.getAllOpenJobAdvertList();
+	}
+	
+	@GetMapping("/findAllByOrderByPublishedAt")
+	public DataResult<List<JobAdvert>> findAllByOrderByPublishedAt(){
+		return this.jobAdvertService.findAllByOrderByPublishedAt();
+	}
+	
+	@GetMapping("/getAllOpenJobAdvertByEmployer")
+	public DataResult<List<JobAdvert>> getAllOpenJobAdvertByEmployer(int id){
+		return this.jobAdvertService.getAllOpenJobAdvertByEmployer(id);
+	}
 }
