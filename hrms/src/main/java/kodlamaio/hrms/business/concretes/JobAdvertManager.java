@@ -28,6 +28,9 @@ public class JobAdvertManager implements JobAdvertService {
 
 	@Override
 	public Result add(JobAdvert jobAdvert) {
+		if (!CheckIfNullField(jobAdvert)) {
+			return new ErrorResult("You have entered missing information. Please fill in all fields.");
+		}
 		this.jobAdvertDao.save(jobAdvert);
 		return new SuccessResult("Job advert has been added.");
 	}
@@ -63,7 +66,7 @@ public class JobAdvertManager implements JobAdvertService {
 		if (getById(id).getData().isOpen() == false) {
 			return new ErrorResult("There job advert is already closed.");
 		}
-		
+
 		JobAdvert jobAdvert = getById(id).getData();
 		jobAdvert.setOpen(false);
 		update(jobAdvert);
@@ -85,4 +88,11 @@ public class JobAdvertManager implements JobAdvertService {
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllOpenJobAdvertByEmployer(id));
 	}
 
+	private boolean CheckIfNullField(JobAdvert jobAdvert) {
+		if (jobAdvert.getJobPosition() != null && jobAdvert.getDescription() != null && jobAdvert.getCity() != null
+				&& jobAdvert.getOpenPositionCount() != 0) {
+			return true;
+		}
+		return false;
+	}
 }
