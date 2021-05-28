@@ -17,7 +17,7 @@ import kodlamaio.hrms.entities.concretes.Employer;
 public class EmployerManager implements EmployerService{
 
 	private EmployerDao employerDao;
-	
+
 	@Autowired
 	public EmployerManager(EmployerDao employerDao) {
 		this.employerDao = employerDao;
@@ -27,7 +27,7 @@ public class EmployerManager implements EmployerService{
 	public Result add(Employer employer) {
 		this.employerDao.save(employer);
         return new SuccessResult("Employer has been added.");
-	} 
+	}
 //
 //	@Override
 //	public void update(Employer employer) {

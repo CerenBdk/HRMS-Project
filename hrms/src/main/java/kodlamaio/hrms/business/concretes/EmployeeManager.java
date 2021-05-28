@@ -21,7 +21,6 @@ public class EmployeeManager implements EmployeeService{
 	
 	@Autowired
 	public EmployeeManager(EmployeeDao employeeDao) {
-		super();
 		this.employeeDao = employeeDao;
 	}
 
