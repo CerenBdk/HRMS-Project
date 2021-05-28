@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -25,27 +26,27 @@ import lombok.NoArgsConstructor;
 public class JobAdvert {
 
 	@Id
-	@GeneratedValue
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 	
 //	@Column(name = "job_position_id")
 //	private int jobPositionId;
 	
-	@Column(name = "employer_id")
-	private int employerId;
+//	@Column(name = "employer_id")
+//	private int employerId;
 	
-	@Column(name = "city_id")
-	private int cityId;
+//	@Column(name = "city_id")
+//	private int cityId;
 	
 	@Column(name = "description")
 	private String description;
 	
 	@Column(name = "salary_min")
-	private double salaryMin;
+	private int salaryMin;
 	
 	@Column(name = "salary_max")
-	private double salaryMax;
+	private int salaryMax;
 	
 	@Column(name = "open_position_count")
 	private int openPositionCount;
@@ -72,4 +73,11 @@ public class JobAdvert {
 	@JoinColumn(name = "job_position_id")
 	private JobPosition jobPosition;
 	
+	@ManyToOne
+	@JoinColumn(name = "employer_id")
+	private Employer employer;
+	
+	@ManyToOne
+	@JoinColumn(name = "city_id")
+	private City city;
 }
