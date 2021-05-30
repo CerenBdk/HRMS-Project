@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.JobAdvertService;
@@ -43,10 +45,10 @@ public class JobAdvertController {
 //		return this.jobAdvertService.delete(id);
 //	}
 //	
-//	@GetMapping("/getbyid")
-//	public DataResult<JobAdvert> getById(@PathVariable("id") int id){
-//		return this.jobAdvertService.getById(id);
-//	}
+	@GetMapping("/getbyid")
+	public DataResult<JobAdvert> getById(int id){
+		return this.jobAdvertService.getById(id);
+	}
 	
 	@GetMapping("/getAll")
 	public DataResult<List<JobAdvert>> getAll(){		

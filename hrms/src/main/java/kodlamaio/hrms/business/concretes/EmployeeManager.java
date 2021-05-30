@@ -44,7 +44,7 @@ public class EmployeeManager implements EmployeeService{
 //
 //	@Override
 //	public DataResult<Employee> getById(int id) {
-//		return new SuccessDataResult<Employee>(this.employeeDao.getOne(id));
+//		return new SuccessDataResult<Employee>(this.employeeDao.getById(id));
 //	}
 
 	@Override

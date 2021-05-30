@@ -45,7 +45,7 @@ public class UserManager implements UserService{
 //
 //	@Override
 //	public DataResult<User> getById(int id) {
-//		return new SuccessDataResult<User>(this.userDao.getOne(id));
+//		return new SuccessDataResult<User>(this.userDao.getById(id));
 //	}
 
 	@Override
