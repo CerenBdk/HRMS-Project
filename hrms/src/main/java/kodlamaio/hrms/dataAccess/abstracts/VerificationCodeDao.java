@@ -6,4 +6,5 @@ import kodlamaio.hrms.entities.concretes.VerificationCode;
 
 public interface VerificationCodeDao extends JpaRepository<VerificationCode, Integer>{
 
+	VerificationCode getById(int id);
 }
