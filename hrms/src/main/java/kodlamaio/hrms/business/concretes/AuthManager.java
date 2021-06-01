@@ -1,7 +1,5 @@
 package kodlamaio.hrms.business.concretes;
 
-import java.time.LocalDate;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -187,7 +185,7 @@ public class AuthManager implements AuthService {
 	
 	private void verificationCodeRecord(String code, int id, String email) {
 		
-		VerificationCode verificationCode = new VerificationCode(id, code, false, LocalDate.now());
+		VerificationCode verificationCode = new VerificationCode(id, code, false);
 		this.verificationCodeService.add(verificationCode);
 		System.out.println("Verification code has been sent to " + email );
 	

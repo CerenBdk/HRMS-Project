@@ -39,9 +39,8 @@ public class VerificationCode {
 	@Column(name= "is_deleted", columnDefinition = "boolean default false")
 	private boolean isDeleted = false;
 	
-	public VerificationCode(int id, int userId, String code, boolean isConfirmed) {
+	public VerificationCode(int userId, String code, boolean isConfirmed) {
 		super();
-		this.id = id;
 		this.userId = userId;
 		this.code = code;
 		this.isConfirmed = isConfirmed;
