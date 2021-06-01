@@ -1,5 +1,4 @@
 package kodlamaio.hrms.entities.concretes;
-
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -8,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,7 +14,6 @@ import lombok.NoArgsConstructor;
 @Table(name="verification_codes")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class VerificationCode {
 
 	@Id
@@ -33,16 +30,21 @@ public class VerificationCode {
 	@Column(name="is_confirmed")
 	private boolean isConfirmed;
 	
-	@Column(name="created_at", columnDefinition = "Date defult CURRENT_DATE")
-	private LocalDate createAt = LocalDate.now();
-
-	public VerificationCode(int userId, String code, boolean isConfirmed, LocalDate createAt) {
+	@Column(name= "created_at", columnDefinition = "Date defult CURRENT_DATE")
+	private LocalDate createdAt = LocalDate.now();
+	
+	@Column(name= "is_active", columnDefinition = "boolean default true")
+	private boolean isActive = true;
+	
+	@Column(name= "is_deleted", columnDefinition = "boolean default false")
+	private boolean isDeleted = false;
+	
+	public VerificationCode(int id, int userId, String code, boolean isConfirmed) {
 		super();
+		this.id = id;
 		this.userId = userId;
 		this.code = code;
 		this.isConfirmed = isConfirmed;
-		this.createAt = createAt;
 	}
-	
 	
 }

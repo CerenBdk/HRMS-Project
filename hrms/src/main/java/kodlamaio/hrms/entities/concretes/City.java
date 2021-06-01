@@ -11,14 +11,12 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "cities")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdverts"})
 public class City {
@@ -33,4 +31,18 @@ public class City {
 	
 	@OneToMany(mappedBy = "city")
 	private List<JobAdvert> jobAdverts;
+	
+	@Column(name= "is_active", columnDefinition = "boolean default true")
+	private boolean isActive = true;
+	
+	@Column(name= "is_deleted", columnDefinition = "boolean default false")
+	private boolean isDeleted = false;
+
+	public City(int id, String name, List<JobAdvert> jobAdverts) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.jobAdverts = jobAdverts;
+	}
+
 }

@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,7 +19,6 @@ import lombok.NoArgsConstructor;
 @Table(name="job_positions")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdverts"})
 public class JobPosition {
 
@@ -42,6 +40,14 @@ public class JobPosition {
 	private boolean isDeleted = false;
 	
 	@OneToMany(mappedBy = "jobPosition")
-	private List<JobAdvert> jobAdverts; 
+	private List<JobAdvert> jobAdverts;
+
+	public JobPosition(int id, String jobTitle, List<JobAdvert> jobAdverts) {
+		super();
+		this.id = id;
+		this.jobTitle = jobTitle;
+		this.jobAdverts = jobAdverts;
+	} 
 		
+	
 }
