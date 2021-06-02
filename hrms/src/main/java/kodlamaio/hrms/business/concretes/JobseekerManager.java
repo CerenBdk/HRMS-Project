@@ -21,9 +21,8 @@ import kodlamaio.hrms.entities.concretes.Jobseeker;
 import kodlamaio.hrms.entities.dtos.JobSeekerCVDto;
 import net.bytebuddy.asm.Advice.This;
 
-
 @Service
-public class JobseekerManager implements JobseekerService{
+public class JobseekerManager implements JobseekerService {
 
 	private JobseekerDao jobseekerDao;
 	private ExperienceForCVService experienceForCVService;
@@ -32,8 +31,6 @@ public class JobseekerManager implements JobseekerService{
 	private LinkForCVService linkForCVService;
 	private ProgrammingSkillForCVService programmingSkillForCVService;
 	private SchoolForCVService schoolForCVService;
-	
-	
 
 	public JobseekerManager(JobseekerDao jobseekerDao, ExperienceForCVService experienceForCVService,
 			ForeignLanguageForCVService foreignLanguageForCVService, ImageForCVService imageForCVService,
@@ -52,25 +49,25 @@ public class JobseekerManager implements JobseekerService{
 	@Override
 	public Result add(Jobseeker jobseeker) {
 		this.jobseekerDao.save(jobseeker);
-      return new SuccessResult("Jobseeker has been added.");
+		return new SuccessResult("Jobseeker has been added.");
 	}
-//
-//	@Override
-//	public Result update(Jobseeker jobseeker) {
-//		this.jobseekerDao.save(jobseeker);
-//      return new SuccessResult("Jobseeker has been updated.");
-//	}
-//
-//	@Override
-//	public Result delete(int id) {
-//		this.jobseekerDao.deleteById(id);
-//      return new SuccessResult("Jobseeker has been deleted.");
-//	}
-//
-//	@Override
-//	public DataResult<Jobseeker> getById(int id) {
-//		return new SuccessDataResult<Jobseeker>(this.jobseekerDao.getById(id));
-//	}
+
+	@Override
+	public Result update(Jobseeker jobseeker) {
+		this.jobseekerDao.save(jobseeker);
+		return new SuccessResult("Jobseeker has been updated.");
+	}
+
+	@Override
+	public Result delete(int id) {
+		this.jobseekerDao.deleteById(id);
+		return new SuccessResult("Jobseeker has been deleted.");
+	}
+
+	@Override
+	public DataResult<Jobseeker> getById(int id) {
+		return new SuccessDataResult<Jobseeker>(this.jobseekerDao.getById(id));
+	}
 
 	@Override
 	public DataResult<List<Jobseeker>> getAll() {
@@ -93,7 +90,5 @@ public class JobseekerManager implements JobseekerService{
 		cv.schools = this.schoolForCVService.getAllByJobseekerId(id).getData();
 		return new SuccessDataResult<JobSeekerCVDto>(cv);
 	}
-	
-	
 
 }
