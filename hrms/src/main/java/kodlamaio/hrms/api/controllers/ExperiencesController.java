@@ -43,7 +43,7 @@ public class ExperiencesController {
 	}
 	
 	@GetMapping("/getbyid")
-	public DataResult<ExperienceForCV> getById(@RequestParam("id") int id){
+	public DataResult<ExperienceForCV> getById(@RequestParam int id){
 		return this.experienceForCVService.getById(id);
 	}
 	
@@ -53,7 +53,7 @@ public class ExperiencesController {
 	}
 	
 	@GetMapping("/getAllByJobseekerIdOrderByEndAtDesc")
-	public DataResult<List<ExperienceForCV>> getAllByJobseekerIdOrderByEndAtDesc(@RequestParam int id){
+	public DataResult<List<ExperienceForCV>> getAllByJobseekerIdOrderByEndAtDesc(@RequestParam("id") int id){
 		return this.experienceForCVService.getAllByJobseekerIdOrderByEndAtDesc(id);
 	}
 	
