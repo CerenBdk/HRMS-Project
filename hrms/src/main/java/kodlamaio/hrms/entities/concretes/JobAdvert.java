@@ -4,13 +4,11 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,12 +16,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @Table(name = "job_adverts")
-public class JobAdvert {
+@AllArgsConstructor
+public class JobAdvert extends Base{
 
-	@Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private int id;
 	
 //	@Column(name = "job_position_id")
 //	private int jobPositionId;
@@ -54,15 +49,6 @@ public class JobAdvert {
 	
 	@Column(name = "is_open")
 	private boolean isOpen;
-	
-	@Column(name= "created_at", columnDefinition = "Date defult CURRENT_DATE")
-	private LocalDate createdAt = LocalDate.now();
-	
-	@Column(name= "is_active", columnDefinition = "boolean default true")
-	private boolean isActive = true;
-	
-	@Column(name= "is_deleted", columnDefinition = "boolean default false")
-	private boolean isDeleted = false;
 
 	@ManyToOne
 	@JoinColumn(name = "job_position_id")
@@ -76,20 +62,4 @@ public class JobAdvert {
 	@JoinColumn(name = "city_id")
 	private City city;
 
-	public JobAdvert(int id, String description, int salaryMin, int salaryMax, int openPositionCount,
-			LocalDate deadline, LocalDate publishedAt, boolean isOpen, JobPosition jobPosition, Employer employer,
-			City city) {
-		super();
-		this.id = id;
-		this.description = description;
-		this.salaryMin = salaryMin;
-		this.salaryMax = salaryMax;
-		this.openPositionCount = openPositionCount;
-		this.deadline = deadline;
-		this.publishedAt = publishedAt;
-		this.isOpen = isOpen;
-		this.jobPosition = jobPosition;
-		this.employer = employer;
-		this.city = city;
-	}
 }
