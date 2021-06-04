@@ -27,19 +27,19 @@ public class SchoolForCVManager implements SchoolForCVService{
 	@Override
 	public Result add(SchoolForCV schoolForCV) {
 		this.schoolForCVDao.save(schoolForCV);
-		return new SuccessResult("Programming skill has been added.");
+		return new SuccessResult("School has been added.");
 	}
 
 	@Override
 	public Result update(SchoolForCV schoolForCV) {
 		this.schoolForCVDao.save(schoolForCV);
-		return new SuccessResult("Programming skill has been updated.");
+		return new SuccessResult("School has been updated.");
 	}
 
 	@Override
 	public Result delete(int id) {
 		this.schoolForCVDao.deleteById(id);
-		return new SuccessResult("Programming skill has been deleted.");
+		return new SuccessResult("School has been deleted.");
 	}
 
 	@Override
