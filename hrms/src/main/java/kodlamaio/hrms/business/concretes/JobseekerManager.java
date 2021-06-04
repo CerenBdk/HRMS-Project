@@ -81,13 +81,14 @@ public class JobseekerManager implements JobseekerService {
 
 	@Override
 	public DataResult<JobSeekerCVDto> getJobseekerCVById(int id) {
+		Jobseeker jobseeker = this.jobseekerDao.getById(id);
 		JobSeekerCVDto cv = new JobSeekerCVDto();
-		cv.experiences = this.experienceForCVService.getAllByJobseekerId(id).getData();
-		cv.languages = this.foreignLanguageForCVService.getAllByJobseekerId(id).getData();
-		cv.image = this.imageForCVService.getByJobseekerId(id).getData();
-		cv.links = this.linkForCVService.getAllByJobseekerId(id).getData();
-		cv.programingSkills = this.programmingSkillForCVService.getAllByJobseekerId(id).getData();
-		cv.schools = this.schoolForCVService.getAllByJobseekerId(id).getData();
+		cv.experiences = jobseeker.getExperiences();
+		cv.languages = jobseeker.getLanguages();
+		cv.image = jobseeker.getImage();
+		cv.links = jobseeker.getLinks();
+		cv.programingSkills = jobseeker.getProgramingSkills();
+		cv.schools = jobseeker.getSchools();
 		return new SuccessDataResult<JobSeekerCVDto>(cv);
 	}
 
